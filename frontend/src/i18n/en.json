@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "home": "Home",
+    "transactions": "Transactions",
+    "budget": "Budget",
+    "goals": "Goals",
+    "profile": "Profile"
+  },
+  "home": {
+    "greeting_morning": "Good morning",
+    "greeting_afternoon": "Good afternoon",
+    "greeting_evening": "Good evening",
+    "subtitle": "Here's your financial overview",
+    "balance": "Total Balance",
+    "income": "Income",
+    "expenses": "Expenses",
+    "savings": "Savings",
+    "all_time_net": "All time net",
+    "all_credits": "All credits",
+    "all_debits": "All debits",
+    "balance_surplus": "Balance surplus",
+    "recent_transactions": "Recent Transactions",
+    "no_transactions": "No transactions yet",
+    "no_transactions_sub": "Start by adding your first transaction.",
+    "add_transaction": "Add Transaction"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "found": "transactions found",
+    "search": "Search transactions…",
+    "all_categories": "All Categories",
+    "no_transactions": "No transactions found",
+    "no_transactions_sub": "Try adjusting your filters or add a new transaction.",
+    "type": "Type",
+    "credit": "Credit",
+    "debit": "Debit",
+    "amount": "Amount",
+    "category": "Category",
+    "date": "Date",
+    "note": "Note",
+    "save": "Save Transaction"
+  },
+  "categories": {
+    "FOOD": "Food",
+    "TRAVEL": "Travel",
+    "SHOPPING": "Shopping",
+    "BILLS": "Bills",
+    "HEALTH": "Health",
+    "ENTERTAINMENT": "Entertainment",
+    "OTHERS": "Others"
+  },
+  "budget": {
+    "title": "Monthly Budgets",
+    "subtitle": "Track your spending limits by category and month",
+    "set_budget": "Set Budget Limit",
+    "monthly_limit": "Monthly Limit for",
+    "no_budgets": "No Budgets Set",
+    "no_budgets_sub": "Select a category above to set a spending limit for this month.",
+    "monthly": "Monthly Budget",
+    "ok": "On Track",
+    "over": "Over Budget",
+    "spent": "spent",
+    "used": "used",
+    "history": "Budget History",
+    "history_sub": "Savings breakdown across previous months"
+  },
+  "months": {
+    "1": "January", "2": "February", "3": "March", "4": "April",
+    "5": "May", "6": "June", "7": "July", "8": "August",
+    "9": "September", "10": "October", "11": "November", "12": "December"
+  },
+  "goals": {
+    "title": "Saving Goals",
+    "subtitle": "Track your financial targets",
+    "create": "Create New Goal",
+    "goal_name": "Goal Name",
+    "target": "Target Amount",
+    "deadline": "Deadline",
+    "no_goals": "No goals yet",
+    "no_goals_sub": "Create your first saving goal above to get started.",
+    "days_left": "days left",
+    "deadline_passed": "Deadline passed",
+    "done": "Done!",
+    "delete_title": "Delete Goal?",
+    "delete_confirm": "Are you sure you want to delete",
+    "delete_warning": "This action cannot be undone.",
+    "edit_goal": "Edit Goal",
+    "current_saved": "Current Saved"
+  },
+  "auth": {
+    "signin": "Sign In",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "confirm_password": "Confirm Password",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "signin_btn": "Sign In",
+    "signup_btn": "Create Account",
+    "logout": "Logout"
+  },
+  "profile": {
+    "title": "Profile",
+    "currency": "Currency",
+    "language": "Language",
+    "preferences": "Preferences",
+    "account": "Account"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "save": "Save Changes",
+    "create": "Create",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading…",
+    "error": "Something went wrong"
+  },
+  "toast": {
+    "transaction_added": "Transaction added successfully! 🎉",
+    "budget_set": "Budget set successfully!",
+    "goal_created": "Goal created!",
+    "goal_updated": "Goal updated successfully! ✏️",
+    "goal_deleted": "Goal deleted.",
+    "login_success": "Welcome back!",
+    "register_success": "Account created! Welcome to FinTrack!",
+    "error_generic": "Something went wrong. Please try again."
+  }
+}

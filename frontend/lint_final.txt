@@ -1,0 +1,20 @@
+﻿
+> frontend@0.0.0 lint
+> eslint .
+
+
+D:\test antigravity\frontend\src\App.jsx
+  74:41  error  'TabIcon' is defined but never used  no-unused-vars
+
+D:\test antigravity\frontend\src\components\CloudMonitor.jsx
+  52:40  error  'MetricIcon' is defined but never used  no-unused-vars
+
+D:\test antigravity\frontend\src\components\Home.jsx
+  70:45  error  'SummaryIcon' is defined but never used  no-unused-vars
+
+D:\test antigravity\frontend\src\context\AppContext.jsx
+  1:32  error  'useContext' is defined but never used. Allowed unused vars must match /^[A-Z_]/u                           no-unused-vars
+  7:14  error  Fast refresh only works when a file only exports components. Move your React context(s) to a separate file  react-refresh/only-export-components
+
+Γ£û 5 problems (5 errors, 0 warnings)
+
