@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://fintrack-pb21.onrender.com';
 
 // Add token to all requests automatically
 axios.interceptors.request.use((config) => {
