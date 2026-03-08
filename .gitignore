@@ -1,0 +1,20 @@
+# Python
+.venv
+__pycache__
+*.pyc
+*.pyo
+
+# Database
+*.db
+finance.db
+
+# Node
+node_modules
+dist
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
