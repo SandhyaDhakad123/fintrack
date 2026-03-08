@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { LayoutDashboard, ArrowLeftRight, Target, Wallet, User as UserIcon, Plus, X, Settings } from 'lucide-react'
+import { LayoutDashboard, ArrowLeftRight, Target, Wallet, User as UserIcon, Plus, X } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { AppProvider } from './context/AppProvider'
 import { useAppContext } from './hooks/useAppContext'
@@ -14,7 +14,6 @@ import TransactionHistory from './components/TransactionHistory'
 import BudgetManager from './components/BudgetManager'
 import SavingGoals from './components/SavingGoals'
 import Profile from './components/Profile'
-import Admin from './components/Admin'
 import TransactionFormModal from './components/TransactionFormModal'
 
 const MainApp = () => {
@@ -25,7 +24,6 @@ const MainApp = () => {
   const [showModal, setShowModal]     = useState(false)
   const [refreshTrigger, setRefresh]  = useState(0)
   
-  // Auth view state (if not logged in)
   const [showSignUp, setShowSignUp] = useState(false)
 
   if (authLoading) {
@@ -40,11 +38,10 @@ const MainApp = () => {
 
   const TABS = [
     { id: 'home',         label: t('nav.home'),         Icon: LayoutDashboard },
-    { id: 'transactions', label: t('nav.transactions'), Icon: ArrowLeftRight   },
-    { id: 'budget',       label: t('nav.budget'),       Icon: Wallet           },
-    { id: 'goals',        label: t('nav.goals'),        Icon: Target           },
-    { id: 'profile',      label: t('nav.profile'),      Icon: UserIcon         },
-    { id: 'admin',        label: 'Admin',               Icon: Settings         },
+    { id: 'transactions', label: t('nav.transactions'), Icon: ArrowLeftRight },
+    { id: 'budget',       label: t('nav.budget'),       Icon: Wallet },
+    { id: 'goals',        label: t('nav.goals'),        Icon: Target },
+    { id: 'profile',      label: t('nav.profile'),      Icon: UserIcon },
   ]
 
   const handleAdded = () => {
@@ -59,14 +56,12 @@ const MainApp = () => {
       case 'budget':       return <BudgetManager />
       case 'goals':        return <SavingGoals />
       case 'profile':      return <Profile />
-      case 'admin':        return <Admin />
       default:             return null
     }
   }
 
   return (
     <div className="app-layout">
-      {/* Top Nav */}
       <nav className="topnav">
         <div className="topnav-brand" onClick={() => setActiveTab('home')} style={{ cursor: 'pointer' }}>
           <div className="brand-icon"><Wallet size={18} /></div>
@@ -99,19 +94,16 @@ const MainApp = () => {
         </div>
       </nav>
 
-      {/* Page */}
       <main className="page-content">
         {renderPage()}
       </main>
 
-      {/* FAB */}
       {activeTab !== 'profile' && (
         <button className="fab" onClick={() => setShowModal(true)} title={t('home.add_transaction')}>
           <Plus size={24} strokeWidth={2.5} />
         </button>
       )}
 
-      {/* Add Transaction Modal */}
       {showModal && (
         <div className="modal-overlay" onClick={e => e.target === e.currentTarget && setShowModal(false)}>
           <div className="modal-panel">
