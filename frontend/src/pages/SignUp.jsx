@@ -31,7 +31,7 @@ const SignUp = ({ onSwitchToSignIn }) => {
     setLoading(true);
     try {
       const data = await registerUser(formData.name, formData.email, formData.password);
-      login({ id: data.user_id, name: data.name, email: data.email }, data.access_token);
+      login({ id: data.user_id, name: data.name, email: data.email }, { access_token: data.access_token, refresh_token: data.refresh_token });
       toast.success(t('toast.register_success'));
     } catch (err) {
       toast.error(err.response?.data?.detail || t('toast.error_generic'));

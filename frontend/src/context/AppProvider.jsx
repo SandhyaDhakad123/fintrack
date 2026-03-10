@@ -14,14 +14,28 @@ export const AppProvider = ({ children }) => {
   const [authLoading, setAuthLoading] = useState(true);
   
   // Settings state
-  const [currency, setCurrency] = useState(localStorage.getItem('fintrack_currency') || 'USD');
-  
-  // Initialize user
+  const [currency, setCurrency] = useState('USD');
+
+  // Initialize user and settings
   useEffect(() => {
     const token = localStorage.getItem('fintrack_token');
+    
+    // Initial global load
+    const globalCurrency = localStorage.getItem('fintrack_currency');
+    const globalLang = localStorage.getItem('fintrack_lang');
+    if (globalCurrency) setCurrency(globalCurrency);
+    if (globalLang) i18n.changeLanguage(globalLang);
+
     if (token) {
       getMe()
-        .then(userData => setUser(userData))
+        .then(userData => {
+          setUser(userData);
+          // Load user-specific settings
+          const uCurrency = localStorage.getItem(`fintrack_currency_${userData.id}`);
+          const uLang = localStorage.getItem(`fintrack_lang_${userData.id}`);
+          if (uCurrency) setCurrency(uCurrency);
+          if (uLang) i18n.changeLanguage(uLang);
+        })
         .catch(() => {
           localStorage.removeItem('fintrack_token');
           setUser(null);
@@ -31,26 +45,46 @@ export const AppProvider = ({ children }) => {
       const timer = setTimeout(() => setAuthLoading(false), 0);
       return () => clearTimeout(timer);
     }
-  }, []);
+  }, [i18n]);
 
-  const login = (userData, token) => {
-    localStorage.setItem('fintrack_token', token);
+  const login = (userData, tokens) => {
+    const { access_token, refresh_token } = tokens;
+    localStorage.setItem('fintrack_token', access_token);
+    localStorage.setItem('fintrack_refresh_token', refresh_token);
     setUser(userData);
+    
+    // Load user-specific settings on login
+    const uCurrency = localStorage.getItem(`fintrack_currency_${userData.id}`);
+    const uLang = localStorage.getItem(`fintrack_lang_${userData.id}`);
+    if (uCurrency) setCurrency(uCurrency);
+    if (uLang) i18n.changeLanguage(uLang);
+
+    // Full page reload to ensure all axios instances and global states are fresh
+    window.location.href = '/';
   };
 
   const logout = () => {
-    localStorage.removeItem('fintrack_token');
+    // Clear all fintrack related localStorage items
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith('fintrack_')) {
+        localStorage.removeItem(key);
+      }
+    });
     setUser(null);
+    // Force reload to clean up all states
+    window.location.href = '/login';
   };
 
   const changeCurrency = (curr) => {
     setCurrency(curr);
-    localStorage.setItem('fintrack_currency', curr);
+    const key = user ? `fintrack_currency_${user.id}` : 'fintrack_currency';
+    localStorage.setItem(key, curr);
   };
 
   const changeLanguage = (lang) => {
     i18n.changeLanguage(lang);
-    localStorage.setItem('fintrack_lang', lang);
+    const key = user ? `fintrack_lang_${user.id}` : 'fintrack_lang';
+    localStorage.setItem(key, lang);
   };
 
   const formatAmount = (amount) => {

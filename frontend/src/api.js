@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const API_URL = 'https://fintrack-pb21.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || 'https://fintrack-pb21.onrender.com';
 
-// Add token to all requests automatically
+// Request interceptor: Add token to all requests automatically
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem('fintrack_token');
   if (token) {
@@ -10,6 +10,40 @@ axios.interceptors.request.use((config) => {
   }
   return config;
 });
+
+// Response interceptor: Handle expired tokens
+axios.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+    
+    // If error is 401 and we haven't retried yet
+    if (error.response?.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      const refreshToken = localStorage.getItem('fintrack_refresh_token');
+      
+      if (refreshToken) {
+        try {
+          const res = await axios.post(`${API_URL}/auth/refresh`, { refresh_token: refreshToken });
+          const { access_token, refresh_token } = res.data;
+          
+          localStorage.setItem('fintrack_token', access_token);
+          localStorage.setItem('fintrack_refresh_token', refresh_token);
+          
+          originalRequest.headers.Authorization = `Bearer ${access_token}`;
+          return axios(originalRequest);
+        } catch (refreshError) {
+          // Refresh token also failed/expired
+          localStorage.removeItem('fintrack_token');
+          localStorage.removeItem('fintrack_refresh_token');
+          window.location.href = '/login';
+          return Promise.reject(refreshError);
+        }
+      }
+    }
+    return Promise.reject(error);
+  }
+);
 
 // ─── Auth ─────────────────────────────────────────────────────
 export const loginUser = async (email, password) => {
