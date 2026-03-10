@@ -1,8 +1,8 @@
 # 💰 FinTrack – Personal Finance Tracker
 
-FinTrack is a full-stack personal finance management web application that helps users track income, expenses, budgets, and savings goals in one place.
+FinTrack is a full-stack personal finance management application that allows users to track income, expenses, budgets, and savings goals in one place.
 
-Users can easily manage their financial activities and get a clear overview of their spending and savings.
+The application focuses on secure authentication, user-level data isolation, and real-time financial insights to help users manage their finances effectively.
 
 ---
 
@@ -17,54 +17,40 @@ https://github.com/SandhyaDhakad123/fintrack
 ---
 
 ## ✨ Features
-
-• User Authentication (Sign Up / Sign In)  
-• Add and manage transactions  
-• Track income and expenses  
-• Monthly budget management  
-• Savings goals tracking  
-• Financial dashboard overview  
-• Transaction history  
-• Responsive UI (works on desktop & mobile)
+• Secure User Authentication (JWT + Refresh Tokens)
+• Add, edit, and delete transactions
+• Track income and expenses
+• Monthly budget management
+• Savings goals tracking
+• Financial dashboard overview
+• Transaction history with filters
+• User data isolation (each user sees only their data)
+• Responsive UI (desktop & mobile)
+• Audit logging for security
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
-React  
-Vite  
-CSS  
-React Toastify  
+Frontend
+• React (Vite)
+• Axios
+• CSS
+• React Toastify
 
-### Backend
-FastAPI  
-Python  
-SQLAlchemy  
-JWT Authentication  
+Backend
+• FastAPI
+• Python
+• SQLAlchemy ORM
+• JWT Authentication
 
-### Database
-SQLite
+Database
+• SQLite (Development)
+• PostgreSQL Ready
 
-### Deployment
-Netlify (Frontend)  
-Render (Backend)
-
-
-fintrack
-│
-├── backend
-│ ├── main.py
-│ ├── models.py
-│ ├── database.py
-│ ├── auth.py
-│ └── requirements.txt
-│
-├── frontend
-│ ├── src
-│ ├── public
-│ ├── package.json
-│ └── vite.config.js
+Deployment
+• Netlify – Frontend
+• Render – Backend
 
 ---
 
@@ -97,14 +83,16 @@ http://localhost:5173
 
 ## 📌 Future Improvements
 
-• Export transactions to CSV  
-• AI-based spending insights  
-• Email monthly financial report  
-• Dark mode support  
+• Export transactions to CSV
+• AI-based spending insights
+• Email monthly financial report
+• Dark mode support
+• Bank API integration
 
 ---
 
 ## 👩‍💻 Author
+
 Sandhya Dhakad
 
 GitHub  
@@ -115,3 +103,18 @@ https://www.linkedin.com/in/sandhya-dhakad-2055822b4/
 ---
 
 ## 📂 Project Structure
+
+fintrack
+│
+├── backend
+│   ├── main.py
+│   ├── models.py
+│   ├── database.py
+│   ├── auth.py
+│   └── requirements.txt
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   ├── package.json
+│   └── vite.config.js
