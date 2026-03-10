@@ -1,109 +1,69 @@
 # 💰 FinTrack – Personal Finance Tracker
 
-FinTrack is a full-stack personal finance management application that allows users to track income, expenses, budgets, and savings goals in one place.
+FinTrack is a **full-stack personal finance management web application** that helps users track income, expenses, budgets, and savings goals in one place.
 
-The application focuses on secure authentication, user-level data isolation, and real-time financial insights to help users manage their finances effectively.
+Users can easily manage their financial activities and get a clear overview of their spending and savings.
 
 ---
 
-## 🚀 Live Demo
+# 🚀 Live Demo
 
-🌐 Live App  
+🌐 **Frontend (Netlify)**
 https://finetrackerapp.netlify.app
 
-💻 GitHub Repository  
+⚙️ **Backend API (Render)**
+https://fintrack-pb21.onrender.com
+
+💻 **GitHub Repository**
 https://github.com/SandhyaDhakad123/fintrack
 
 ---
 
-## ✨ Features
-• Secure User Authentication (JWT + Refresh Tokens)
-• Add, edit, and delete transactions
+# ✨ Features
+
+• Secure **User Authentication (Sign Up / Sign In)**
+• JWT based authentication system
+• Add and manage transactions
 • Track income and expenses
 • Monthly budget management
 • Savings goals tracking
 • Financial dashboard overview
-• Transaction history with filters
-• User data isolation (each user sees only their data)
-• Responsive UI (desktop & mobile)
-• Audit logging for security
+• Transaction history
+• Weekly and monthly financial reports
+• Responsive UI (works on desktop & mobile)
 
 ---
 
-## 🛠️ Tech Stack
+# 🛠️ Tech Stack
 
-Frontend
-• React (Vite)
-• Axios
-• CSS
-• React Toastify
+## Frontend
 
-Backend
-• FastAPI
-• Python
-• SQLAlchemy ORM
-• JWT Authentication
+* React
+* Vite
+* CSS
+* React Toastify
 
-Database
-• SQLite (Development)
-• PostgreSQL Ready
+## Backend
 
-Deployment
-• Netlify – Frontend
-• Render – Backend
+* FastAPI
+* Python
+* SQLAlchemy
+* JWT Authentication
 
----
+## Database
 
-## ⚙️ Installation (Run Locally)
+* SQLite
 
-### Clone the repository
-git clone https://github.com/SandhyaDhakad123/fintrack.git
+## Deployment
 
-
-### Backend Setup
-cd backend
-python -m venv .venv
-..venv\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload
-
-Backend will run on:
-http://127.0.0.1:8000
-
-
-### Frontend Setup
-cd frontend
-npm install
-npm run dev
-
-Frontend will run on:
-http://localhost:5173
+* Netlify (Frontend)
+* Render (Backend)
 
 ---
 
-## 📌 Future Improvements
+# 📂 Project Structure
 
-• Export transactions to CSV
-• AI-based spending insights
-• Email monthly financial report
-• Dark mode support
-• Bank API integration
-
----
-
-## 👩‍💻 Author
-
-Sandhya Dhakad
-
-GitHub  
-https://github.com/SandhyaDhakad123
-
-LinkedIn  
-https://www.linkedin.com/in/sandhya-dhakad-2055822b4/
----
-
-## 📂 Project Structure
-
+```
 fintrack
 │
 ├── backend
@@ -118,3 +78,81 @@ fintrack
 │   ├── public
 │   ├── package.json
 │   └── vite.config.js
+```
+
+---
+
+# ⚙️ Installation (Run Locally)
+
+## Clone Repository
+
+```
+git clone https://github.com/SandhyaDhakad123/fintrack.git
+```
+
+---
+
+## Backend Setup
+
+```
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+Backend runs on:
+
+```
+http://127.0.0.1:8000
+```
+
+---
+
+## Frontend Setup
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs on:
+
+```
+http://localhost:5173
+```
+
+---
+
+# 🔒 Security Features
+
+• Password hashing using **bcrypt**
+• JWT based authentication
+• Rate limiting for login attempts
+• CORS protection
+• Secure HTTP headers
+• Input validation with Pydantic
+
+---
+
+# 📌 Future Improvements
+
+• Export transactions to CSV
+• AI-based spending insights
+• Email monthly financial report
+• Dark mode support
+• PostgreSQL database integration
+
+---
+
+# 👩‍💻 Author
+
+**Sandhya Dhakad**
+
+GitHub
+https://github.com/SandhyaDhakad123
+
+LinkedIn
+https://www.linkedin.com/in/sandhya-dhakad-2055822b4/
