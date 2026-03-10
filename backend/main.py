@@ -39,13 +39,13 @@ async def add_security_headers(request: Request, call_next):
     
     # Restrictive CSP: only allow self and specific localhost ports for connections
     response.headers["Content-Security-Policy"] = (
-        "default-src 'self'; "
-        "frame-ancestors 'none'; "
-        "script-src 'self' 'unsafe-inline'; "
-        "style-src 'self' 'unsafe-inline'; "
-        "img-src 'self' data:; "
-        "connect-src 'self' http://localhost:8000 http://127.0.0.1:8000 http://localhost:5173"
-    )
+    "default-src 'self'; "
+    "frame-ancestors 'none'; "
+    "script-src 'self' 'unsafe-inline'; "
+    "style-src 'self' 'unsafe-inline'; "
+    "img-src 'self' data:; "
+    "connect-src 'self' http://localhost:8000 http://127.0.0.1:8000 http://localhost:5173 https://fintrack-pb21.onrender.com https://finetrackerapp.netlify.app"
+)
 
     # Disable caching for all sensitive API responses to prevent session data leakage
     path = request.url.path
